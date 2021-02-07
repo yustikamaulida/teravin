@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Detail Siswa</title>
+	</head>
+
+	<body>
+		<h3>Detail User</h3>
+		<form>
+			<table>
+				<tr>
+					<td><label name="nama_user">Nama</label></td>
+					<td><input name="nama_user" th:value="${userModel.nama_user}"  readonly/></td>
+				</tr>
+				<tr>
+					<td><label name="no_hp">No. Hp</label></td>
+					<td><input name="no_hp" th:value="${userModel.no_hp}"  readonly/></td>
+				</tr>
+		
+				<tr>
+					<td><label name="email">Tempat Lahir Siswa</label></td>
+					<td><input name="email" th:value="${userModel.email}"  readonly/></td>
+				</tr>
+				<tr>
+					<td><label name="alamat1">Wali Siswa</label></td>
+					<td><input name="alamat1" th:value="${userModel.alamat1}"  readonly/></td>
+				</tr>
+				<tr>
+					<td><label name="alamat2">Pekerjaan Wali Siswa</label></td>
+					<td><input name="alamat2" th:value="${userModel.alamat2}"  readonly/></td>
+				</tr>
+				<tr>
+					<td><label name="alamat3">Telp Wali Siswa</label></td>
+					<td><input name="alamat3" th:value="${userModel.alamat3}"  readonly/></td>
+				</tr>
+				
+				<tr>
+                    <td/>
+                    <td>
+                    	<a th:href = "@{/user/list}">Ke list</a>
+                    </td>
+                </tr>
+			</table>
+		</form>
+	</body>
+</html>

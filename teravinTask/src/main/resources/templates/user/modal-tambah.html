@@ -1,0 +1,105 @@
+<!-- Modal -->
+<div class="row">
+	<div class="col-md-4">
+		<div class="modal fade" id="modal-tambah-data" tabindex="-1"
+			role="dialog" aria-labelledby="modal-edit" aria-hidden="true">
+			<div class="modal-dialog modal- modal-dialog-centered modal-md"
+				role="document">
+				<div class="modal-content">
+					<div class="modal-body p-0">
+						<div class="card bg-secondary border-0 mb-0">
+							<div class="card-header bg-transparent ">
+								<div class="text-center text-muted">Form Tambah User</div>
+							</div>
+							<div class="card-body">
+								<form class="col-lg" th:action="@{tambah_data}" onSubmit="validasi()">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<span class="input-group-text">Nama</span>
+											</div>
+											<input class="form-control" type="text" id="nama_user"
+												name="nama_user">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<span class="input-group-text">No. Hp</span>
+											</div>
+											<input class="form-control" type="text" id="no_hp"
+												name="no_hp">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<span class="input-group-text">Email</i></span>
+											</div>
+											<input class="form-control" type="text" id="email"
+												name="email">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<span class="input-group-text">Alamat</i></span>
+											</div>
+											<input class="form-control" type="text" id="alamat1"
+												name="alamat1"><span class="input-group-text" type="button"
+												onclick="add_field();" >+</i></span>
+										</div>
+									</div>
+	
+									<div id="wrapper">
+										<div id="field_div">
+										
+										</div>
+									</div>
+
+									<div class="text-center">
+										<button type="submit" class="btn btn-success my-4">Create</button>
+										<button type="button" class="btn btn-danger"
+											data-dismiss="modal">Back</button>
+									</div>
+								</form>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	function add_field() {
+		var total_text = document.getElementsByClassName("alamat");
+		total_text = total_text.length + 1;
+		document.getElementById("field_div").innerHTML = document
+				.getElementById("field_div").innerHTML
+				+ "<div class='form-group'><div class='input-group'><div class='input-group-prepend'><span class='input-group-text'>Alamat</i></span></div><input class='form-control' type='text' id='alamat"
+				+total_text+"' name='alamat"
+				+total_text+"'><span class='input-group-text' type='button' onclick = 'remove_field('alamat"+total_text+"')';>-</i></span></div></div>"
+
+	}
+	
+	function remove_field(id) {
+		document.getElementById(id + "_wrapper").innerHTML = "";
+	}
+	
+	function validasi() {
+		var nama = document.getElementById("nama_user").value;
+		var no_hp = document.getElementById("no_hp").value;
+		var email = document.getElementById("email").value;
+		var alamat1 = document.getElementById("alamat1").value;
+		var alamat2 = document.getElementById("alamat2").value;
+		if (nama != "" && no_hp != "" && email != "" && alamat1 != "" && alamat2 !== "") {
+			return true;
+		} else {
+			alert('Anda harus mengisi data dengan lengkap !');
+		}
+	}
+</script>

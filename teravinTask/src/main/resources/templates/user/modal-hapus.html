@@ -1,0 +1,44 @@
+<!-- Modal -->
+<div class="col-md-4">
+	<div class="modal fade" id="modal-hapus-data" tabindex="-1"
+		role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+		<div class="modal-dialog modal-danger modal-dialog-centered modal-"
+			role="document">
+			<div class="modal-content bg-gradient-warning">
+
+				<div class="modal-header">
+				</div>
+
+				<div class="modal-body">
+
+					<div class="py-3 text-center">
+						<i class="fas fa-trash-alt ni-4x"></i>
+						<h4 class="heading m-4">Anda yakin akan menghapus data ?</h4>
+						<button type="button" class="btn btn-danger" id="hapus" value="">Hapus</button>
+						<button type="button" class="btn btn-white"
+						data-dismiss="modal">Batal</button>
+				
+					</div>
+
+				</div>
+
+				<div class="modal-footer">
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+$("#hapus").on("click", function(){
+	var nama_user = $(this).val();
+	$.ajax({
+		type: 'delete',
+		url: 'api_delete?nama_user='+nama_user,
+		success: function(result){
+			location.reload();
+		}
+	})
+})
+</script>

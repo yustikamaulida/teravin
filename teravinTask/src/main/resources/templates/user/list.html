@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Data User</title>
+</head>
+
+<body>
+	<form th:action="@{/user/search}">
+		Nama Search: <input type="text" name="keyword" id="keyword"
+			th:value="${keyword}" required /> &nbsp; <input type="submit"
+			value="Search"> &nbsp;
+	</form>
+	<h1>Tabel User</h1>
+
+	<table border="1">
+		<thead>
+			<th>Nama User</th>
+			<th>Email</th>
+
+		</thead>
+
+		<tbody>
+			<tr th:each="userModel:${userModelList}">
+
+				<td><a th:text=${userModel.nama_user}></a></td>
+				<td><a th:text=${userModel.email}></a></td>
+
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>
